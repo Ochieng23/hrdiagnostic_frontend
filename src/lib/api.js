@@ -1,7 +1,17 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api/v1';
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ||
+  (process.env.NODE_ENV === 'development' ? 'http://localhost:4000/api/v1' : '');
+
+function getApiUrl() {
+  if (!API_URL) {
+    throw new Error('NEXT_PUBLIC_API_URL is not configured.');
+  }
+
+  return API_URL;
+}
 
 async function request(path, options) {
-  const res = await fetch(`${API_URL}${path}`, {
+  const res = await fetch(`${getApiUrl()}${path}`, {
     headers: { 'Content-Type': 'application/json' },
     ...options,
   });
@@ -52,7 +62,7 @@ class ApiClient {
   async listSessions({ page = 1, limit = 50, status } = {}) {
     const params = new URLSearchParams({ page, limit });
     if (status) params.set('status', status);
-    const res = await fetch(`${API_URL}/sessions?${params}`, {
+    const res = await fetch(`${getApiUrl()}/sessions?${params}`, {
       headers: { 'Content-Type': 'application/json' },
     });
     const json = await res.json().catch(() => null);
