@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #FFFFFF;
+  color: #0F172A;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Option buttons (question answers) ─────────────────────────────────── */
+.opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  color: #475569;
+  padding: 14px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-weight: 400;
+  transition: all 0.15s;
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+.opt:hover {
+  border-color: #94A3B8;
+  color: #0F172A;
+  background: #F8FAFC;
+}
+.opt:last-child { margin-bottom: 0; }
+
+/* ── Area / overview cards ──────────────────────────────────────────────── */
+.card {
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 20px 18px;
+  cursor: pointer;
+  transition: all 0.18s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.card:hover {
+  border-color: #94A3B8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.09);
+}
+
+/* ── Buttons ────────────────────────────────────────────────────────────── */
+.ph-btn {
+  padding: 11px 22px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  transition: all 0.18s;
+  border: 1.5px solid;
+  line-height: 1;
+}
+.ph-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.ph-btn:active { transform: translateY(0); opacity: 1; }
+
+/* ── Org name input ─────────────────────────────────────────────────────── */
+.org-in {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  color: #0F172A;
+  padding: 11px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-weight: 400;
+  outline: none;
+  width: 240px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.org-in:focus {
+  border-color: #7C3AED;
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
+}
+.org-in::placeholder { color: #94A3B8; }
+
+/* ── Solution cards ─────────────────────────────────────────────────────── */
+.sol-card {
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.sol-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+
+.sol-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 22px;
+  cursor: pointer;
+}
+.sol-header:hover { background: #F8FAFC; }
+
+.sol-body {
+  padding: 0 22px 22px;
+  border-top: 1.5px solid #F1F5F9;
+}
+
+/* ── Tags & chips ───────────────────────────────────────────────────────── */
+.tag {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  padding: 3px 9px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.chip {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  border: 1.5px solid;
+  white-space: nowrap;
+}
+
+/* ── Animations ─────────────────────────────────────────────────────────── */
+@keyframes spin    { to { transform: rotate(360deg); } }
+@keyframes fadeIn  { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fadeIn 0.25s ease both; }
