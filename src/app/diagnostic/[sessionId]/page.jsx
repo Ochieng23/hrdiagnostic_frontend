@@ -71,7 +71,7 @@ export default function DiagnosticPage() {
           borderTopColor: T.blue, borderRadius: '50%',
           animation: 'spin 0.8s linear infinite',
         }} />
-        <div style={{ color: T.muted, fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, letterSpacing: '0.07em' }}>
+        <div style={{ color: T.muted, fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, letterSpacing: '0.07em' }}>
           LOADING SESSION
         </div>
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
@@ -85,7 +85,7 @@ export default function DiagnosticPage() {
         minHeight: '100vh', background: T.bg, display: 'flex',
         alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 16,
       }}>
-        <div style={{ color: T.red, fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 16 }}>
+        <div style={{ color: T.red, fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 16 }}>
           ERROR
         </div>
         <div style={{ color: T.text, fontSize: 16 }}>{error || 'Session not found'}</div>

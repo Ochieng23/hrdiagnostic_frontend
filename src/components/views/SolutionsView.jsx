@@ -50,9 +50,9 @@ function SolutionCard({ solution, areaColor, expanded, onToggle }) {
 
       {expanded && (
         <div className="sol-body" style={{ paddingTop: 18 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+          <div className="rsp-2col-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
             <div>
-              <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', marginBottom: 6 }}>
+              <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', marginBottom: 6 }}>
                 WHAT IT DOES
               </div>
               <div style={{ fontSize: 16, color: T.text, lineHeight: 1.65 }}>
@@ -60,7 +60,7 @@ function SolutionCard({ solution, areaColor, expanded, onToggle }) {
               </div>
             </div>
             <div>
-              <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', marginBottom: 6 }}>
+              <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', marginBottom: 6 }}>
                 REPLACES
               </div>
               <div style={{ fontSize: 16, color: T.muted, lineHeight: 1.65 }}>
@@ -69,15 +69,15 @@ function SolutionCard({ solution, areaColor, expanded, onToggle }) {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+          <div className="rsp-2col-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
             <div style={{ background: T.faint, borderRadius: 6, padding: '12px 14px' }}>
-              <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.green, letterSpacing: '0.08em', marginBottom: 4 }}>
+              <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.green, letterSpacing: '0.08em', marginBottom: 4 }}>
                 EFFORT SAVING
               </div>
               <div style={{ fontSize: 16, color: T.text }}>{solution.saving}</div>
             </div>
             <div style={{ background: T.faint, borderRadius: 6, padding: '12px 14px' }}>
-              <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.blue, letterSpacing: '0.08em', marginBottom: 4 }}>
+              <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.blue, letterSpacing: '0.08em', marginBottom: 4 }}>
                 ROI STORY
               </div>
               <div style={{ fontSize: 16, color: T.text }}>{solution.roi}</div>
@@ -85,7 +85,7 @@ function SolutionCard({ solution, areaColor, expanded, onToggle }) {
           </div>
 
           <div>
-            <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', marginBottom: 8 }}>
+            <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', marginBottom: 8 }}>
               PLATFORMS & TOOLS
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
@@ -112,42 +112,42 @@ export function SolutionsView({ orgName, matrix, systemicId, expanded, setExpand
   return (
     <div style={{ minHeight: '100vh', background: T.bg, padding: '0 0 80px' }}>
       {/* Header */}
-      <div style={{
+      <div className="rsp-nav" style={{
         borderBottom: `1px solid ${T.border}`,
         padding: '0 32px', height: 62,
         display: 'flex', alignItems: 'center', gap: 16,
         position: 'sticky', top: 0, zIndex: 10,
         background: T.bg, boxShadow: `0 1px 0 ${T.border}`,
       }}>
-        <a href="/" style={{
-          fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 13,
+        <a className="rsp-dash-link" href="/" style={{
+          fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 13,
           color: T.muted, textDecoration: 'none', letterSpacing: '0.04em',
-          display: 'flex', alignItems: 'center', gap: 5,
+          display: 'flex', alignItems: 'center', gap: 5, flexShrink: 0,
         }}>← Dashboard</a>
-        <div style={{ width: 1, height: 20, background: T.border }} />
+        <div className="rsp-dash-sep" style={{ width: 1, height: 20, background: T.border, flexShrink: 0 }} />
         <button
           onClick={onBack}
           style={{
             background: 'none', border: 'none', color: T.muted, cursor: 'pointer',
-            fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 13, letterSpacing: '0.04em',
-            display: 'flex', alignItems: 'center', gap: 6, padding: 0,
+            fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 13, letterSpacing: '0.04em',
+            display: 'flex', alignItems: 'center', gap: 6, padding: 0, flexShrink: 0,
           }}
         >
           ← Results
         </button>
-        <div style={{ width: 1, height: 20, background: T.border }} />
-        <div style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 22, color: T.text }}>
+        <div style={{ width: 1, height: 20, background: T.border, flexShrink: 0 }} />
+        <div className="rsp-header-title" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 22, color: T.text }}>
           AI Solutions Roadmap{orgName ? ` — ${orgName}` : ''}
         </div>
       </div>
 
-      <div style={{ maxWidth: 960, margin: '0 auto', padding: '32px 24px' }}>
+      <div className="rsp-main-content" style={{ maxWidth: 960, margin: '0 auto', padding: '32px 24px' }}>
         {/* Intro */}
         <div style={{
           background: T.surface, border: `1px solid ${T.border}`,
           borderRadius: 10, padding: '20px 24px', marginBottom: 28,
         }}>
-          <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', marginBottom: 8 }}>
+          <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', marginBottom: 8 }}>
             YOUR PERSONALISED AI ROADMAP
           </div>
           <div style={{ fontSize: 15, color: T.muted, lineHeight: 1.65 }}>
@@ -171,7 +171,7 @@ export function SolutionsView({ orgName, matrix, systemicId, expanded, setExpand
                   display: 'flex', alignItems: 'center', gap: 8,
                 }}>
                   <div style={{ width: 8, height: 8, borderRadius: '50%', background: row.color }} />
-                  <span style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: row.color, letterSpacing: '0.07em' }}>
+                  <span style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: row.color, letterSpacing: '0.07em' }}>
                     #{areaRank + 1}
                   </span>
                   <span style={{ fontSize: 15, color: row.color, fontWeight: 500 }}>{row.label}</span>

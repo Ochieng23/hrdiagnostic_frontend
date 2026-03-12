@@ -24,7 +24,7 @@ export function OverviewView({
   return (
     <div style={{ minHeight: '100vh', background: T.bg, padding: '0 0 60px' }}>
       {/* Header */}
-      <div style={{
+      <div className="rsp-nav" style={{
         borderBottom: `1px solid ${T.border}`,
         padding: '0 32px',
         height: 62,
@@ -40,12 +40,13 @@ export function OverviewView({
         boxShadow: `0 1px 0 ${T.border}`,
       }}>
         {/* Left: back link + title */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap', gap: 10 }}>
           <a
+            className="rsp-dash-link"
             href="/"
             style={{
               display: 'flex', alignItems: 'center', gap: 6,
-              fontFamily: "'JetBrains Mono', 'Courier New', monospace",
+              fontFamily: "'Roboto Mono', 'Courier New', monospace",
               fontSize: 13, color: T.muted, textDecoration: 'none',
               letterSpacing: '0.04em', transition: 'color 0.15s',
             }}
@@ -54,14 +55,14 @@ export function OverviewView({
           >
             ← Dashboard
           </a>
-          <div style={{ width: 1, height: 20, background: T.border }} />
+          <div className="rsp-dash-sep" style={{ width: 1, height: 20, background: T.border }} />
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <div style={{
               width: 28, height: 28, borderRadius: 6,
               background: 'linear-gradient(135deg, #7C3AED, #2563EB)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontSize: 11, color: '#fff', fontWeight: 700,
-              fontFamily: "'JetBrains Mono', 'Courier New', monospace",
+              fontFamily: "'Roboto Mono', 'Courier New', monospace",
               flexShrink: 0,
             }}>HR</div>
             <div style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 20, color: T.text }}>
@@ -81,10 +82,10 @@ export function OverviewView({
         </div>
       </div>
 
-      <div style={{ maxWidth: 960, margin: '0 auto', padding: '32px 24px' }}>
+      <div className="rsp-main-content" style={{ maxWidth: 960, margin: '0 auto', padding: '32px 24px' }}>
         {/* Overall maturity banner */}
         {overallMat !== null && matMeta && (
-          <div style={{
+          <div className="rsp-mat-banner" style={{
             background: T.surface,
             border: `1px solid ${T.border}`,
             borderRadius: 12,
@@ -96,8 +97,8 @@ export function OverviewView({
             flexWrap: 'wrap',
           }}>
             <ScoreRing score={overallMat} color={matMeta.color} size={72} />
-            <div style={{ flex: 1 }}>
-              <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', marginBottom: 4 }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', marginBottom: 4 }}>
                 OVERALL MATURITY
               </div>
               <div style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 28, color: matMeta.color, marginBottom: 4 }}>
@@ -108,7 +109,7 @@ export function OverviewView({
               </div>
             </div>
             <div style={{ textAlign: 'right' }}>
-              <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.07em', marginBottom: 6 }}>
+              <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.07em', marginBottom: 6 }}>
                 PROGRESS
               </div>
               <div style={{ fontSize: 26, fontWeight: 600, color: T.text }}>
@@ -121,10 +122,10 @@ export function OverviewView({
 
         {/* Area cards grid */}
         <div style={{ marginBottom: 20 }}>
-          <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', marginBottom: 16 }}>
+          <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', marginBottom: 16 }}>
             DIAGNOSTIC AREAS — SELECT TO ASSESS
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 10 }}>
+          <div className="rsp-area-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 10 }}>
             {AREAS.map(area => {
               const sc = areaScores.find(a => a.id === area.id);
               const done = completedAreas.includes(area.id);
@@ -140,7 +141,7 @@ export function OverviewView({
                 >
                   <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 10 }}>
                     <div>
-                      <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: area.color, letterSpacing: '0.07em', marginBottom: 3 }}>
+                      <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: area.color, letterSpacing: '0.07em', marginBottom: 3 }}>
                         {area.num}
                       </div>
                       <div style={{ fontSize: 15, fontWeight: 500, color: T.text, lineHeight: 1.3 }}>
@@ -155,7 +156,7 @@ export function OverviewView({
                         border: `1px solid ${T.border}`,
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         fontSize: 16, color: T.muted,
-                        fontFamily: "'JetBrains Mono', 'Courier New', monospace",
+                        fontFamily: "'Roboto Mono', 'Courier New', monospace",
                       }}>
                         {ans > 0 ? `${ans}/${qs}` : '–'}
                       </div>
@@ -169,7 +170,7 @@ export function OverviewView({
                   <div style={{ marginTop: 8, display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ fontSize: 16, color: T.muted }}>{area.effortSaving}</span>
                     {done && (
-                      <span style={{ fontSize: 15, color: area.color, fontFamily: "'JetBrains Mono', 'Courier New', monospace", letterSpacing: '0.06em' }}>
+                      <span style={{ fontSize: 15, color: area.color, fontFamily: "'Roboto Mono', 'Courier New', monospace", letterSpacing: '0.06em' }}>
                         DONE
                       </span>
                     )}
@@ -192,7 +193,7 @@ export function OverviewView({
         >
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div>
-              <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.purple, letterSpacing: '0.08em', marginBottom: 4 }}>
+              <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.purple, letterSpacing: '0.08em', marginBottom: 4 }}>
                 DEPENDENCY MAPPING
               </div>
               <div style={{ fontSize: 15, fontWeight: 500, color: T.text }}>
@@ -207,7 +208,7 @@ export function OverviewView({
                 {depAnswered}/4
               </div>
               {completedDeps && (
-                <div style={{ fontSize: 15, color: T.purple, fontFamily: "'JetBrains Mono', 'Courier New', monospace", letterSpacing: '0.06em' }}>
+                <div style={{ fontSize: 15, color: T.purple, fontFamily: "'Roboto Mono', 'Courier New', monospace", letterSpacing: '0.06em' }}>
                   DONE
                 </div>
               )}
@@ -233,11 +234,11 @@ export function OverviewView({
         }}>
           <div style={{ display: 'flex', gap: 24 }}>
             <div>
-              <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.07em' }}>QUESTIONS</div>
+              <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.07em' }}>QUESTIONS</div>
               <div style={{ fontSize: 26, fontWeight: 600, color: T.text }}>{answered + depAnswered}/{totalQs + 4}</div>
             </div>
             <div>
-              <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.07em' }}>AREAS DONE</div>
+              <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.07em' }}>AREAS DONE</div>
               <div style={{ fontSize: 26, fontWeight: 600, color: T.text }}>{completedAreas.length}/8</div>
             </div>
           </div>

@@ -42,34 +42,34 @@ export function ResultsView({
   return (
     <div style={{ minHeight: '100vh', background: T.bg, padding: '0 0 80px' }}>
       {/* Header */}
-      <div style={{
+      <div className="rsp-nav" style={{
         borderBottom: `1px solid ${T.border}`,
         padding: '0 32px', height: 62,
         display: 'flex', alignItems: 'center', gap: 16,
         position: 'sticky', top: 0, zIndex: 10,
         background: T.bg, boxShadow: `0 1px 0 ${T.border}`,
       }}>
-        <a href="/" style={{
-          fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 13,
+        <a className="rsp-dash-link" href="/" style={{
+          fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 13,
           color: T.muted, textDecoration: 'none', letterSpacing: '0.04em',
-          display: 'flex', alignItems: 'center', gap: 5,
+          display: 'flex', alignItems: 'center', gap: 5, flexShrink: 0,
         }}>← Dashboard</a>
-        <div style={{ width: 1, height: 20, background: T.border }} />
+        <div className="rsp-dash-sep" style={{ width: 1, height: 20, background: T.border, flexShrink: 0 }} />
         <button
           onClick={onBack}
           style={{
             background: 'none', border: 'none', color: T.muted, cursor: 'pointer',
-            fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 13, letterSpacing: '0.04em',
-            display: 'flex', alignItems: 'center', gap: 6, padding: 0,
+            fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 13, letterSpacing: '0.04em',
+            display: 'flex', alignItems: 'center', gap: 6, padding: 0, flexShrink: 0,
           }}
         >
           ← Overview
         </button>
-        <div style={{ width: 1, height: 20, background: T.border }} />
-        <div style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 22, color: T.text }}>
+        <div style={{ width: 1, height: 20, background: T.border, flexShrink: 0 }} />
+        <div className="rsp-header-title" style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 22, color: T.text }}>
           Priority Matrix{orgName ? ` — ${orgName}` : ''}
         </div>
-        <div style={{ marginLeft: 'auto' }}>
+        <div className="rsp-results-header-cta" style={{ marginLeft: 'auto', flexShrink: 0 }}>
           <button
             className="ph-btn"
             style={{ background: T.green, borderColor: T.green, color: '#000' }}
@@ -80,7 +80,7 @@ export function ResultsView({
         </div>
       </div>
 
-      <div style={{ maxWidth: 960, margin: '0 auto', padding: '32px 24px' }}>
+      <div className="rsp-main-content" style={{ maxWidth: 960, margin: '0 auto', padding: '32px 24px' }}>
         {/* Summary row */}
         {overallMat !== null && matMeta && (
           <div style={{
@@ -88,7 +88,7 @@ export function ResultsView({
             gap: 12, marginBottom: 32,
           }}>
             <div style={{ background: T.surface, border: `1px solid ${T.border}`, borderRadius: 8, padding: '16px 18px' }}>
-              <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.07em', marginBottom: 8 }}>
+              <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.07em', marginBottom: 8 }}>
                 OVERALL MATURITY
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -101,7 +101,7 @@ export function ResultsView({
             </div>
 
             <div style={{ background: T.surface, border: `1px solid ${T.border}`, borderRadius: 8, padding: '16px 18px' }}>
-              <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.07em', marginBottom: 8 }}>
+              <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.07em', marginBottom: 8 }}>
                 OVERHEAD REDUCTION
               </div>
               <div style={{ fontSize: 28, fontWeight: 600, color: T.text }}>{matMeta.reduction}</div>
@@ -110,7 +110,7 @@ export function ResultsView({
 
             {systemicId && (
               <div style={{ background: T.surface, border: `1px solid ${T.red}44`, borderRadius: 8, padding: '16px 18px' }}>
-                <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.red, letterSpacing: '0.07em', marginBottom: 8 }}>
+                <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.red, letterSpacing: '0.07em', marginBottom: 8 }}>
                   TOP PRIORITY AREA
                 </div>
                 <div style={{ fontSize: 16, color: T.text, fontWeight: 500 }}>
@@ -122,7 +122,7 @@ export function ResultsView({
 
             {topDep && (
               <div style={{ background: T.surface, border: `1px solid ${T.purple}44`, borderRadius: 8, padding: '16px 18px' }}>
-                <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.purple, letterSpacing: '0.07em', marginBottom: 8 }}>
+                <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.purple, letterSpacing: '0.07em', marginBottom: 8 }}>
                   BUSINESS PAIN SIGNAL
                 </div>
                 <div style={{ fontSize: 16, color: T.text, fontWeight: 500 }}>
@@ -136,7 +136,7 @@ export function ResultsView({
 
         {/* Priority matrix table */}
         <div style={{ marginBottom: 28 }}>
-          <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', marginBottom: 16 }}>
+          <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', marginBottom: 16 }}>
             ASSESSED AREAS — RANKED BY PRIORITY INDEX
           </div>
           {scoredMatrix.map((row, rank) => {
@@ -148,6 +148,7 @@ export function ResultsView({
             return (
               <div
                 key={row.id}
+                className="rsp-matrix-row"
                 style={{
                   background: T.surface,
                   border: `1px solid ${rank === 0 ? T.red + '55' : T.border}`,
@@ -160,12 +161,12 @@ export function ResultsView({
                   gap: 12,
                 }}
               >
-                <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: rank < 3 ? pColor : T.muted, fontWeight: 600 }}>
+                <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: rank < 3 ? pColor : T.muted, fontWeight: 600 }}>
                   #{rank + 1}
                 </div>
 
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
                     <div style={{ width: 8, height: 8, borderRadius: '50%', background: row.color, flexShrink: 0 }} />
                     <span style={{ fontSize: 15, color: T.text, fontWeight: 500 }}>{row.label}</span>
                     <span className="tag" style={{ background: pColor + '22', color: pColor }}>{pLabel}</span>
@@ -180,28 +181,31 @@ export function ResultsView({
                   </div>
                 </div>
 
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, marginBottom: 3 }}>MATURITY</div>
-                  <div style={{ fontSize: 16, fontWeight: 600, color: matColor }}>
-                    {row.maturityScore !== null ? row.maturityScore : '–'}
+                {/* 4 stat cells — wrapped for responsive reflow */}
+                <div className="rsp-matrix-stats-wrap" style={{ display: 'contents' }}>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 11, color: T.muted, marginBottom: 3, letterSpacing: '0.06em' }}>MATURITY</div>
+                    <div style={{ fontSize: 16, fontWeight: 600, color: matColor }}>
+                      {row.maturityScore !== null ? row.maturityScore : '–'}
+                    </div>
                   </div>
-                </div>
 
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, marginBottom: 3 }}>BOTTLENECK</div>
-                  <div style={{ fontSize: 16, fontWeight: 600, color: bColor }}>
-                    {row.bottleneckSeverity !== null ? row.bottleneckSeverity : '–'}
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 11, color: T.muted, marginBottom: 3, letterSpacing: '0.06em' }}>BOTTLENECK</div>
+                    <div style={{ fontSize: 16, fontWeight: 600, color: bColor }}>
+                      {row.bottleneckSeverity !== null ? row.bottleneckSeverity : '–'}
+                    </div>
                   </div>
-                </div>
 
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, marginBottom: 3 }}>PRIORITY</div>
-                  <div style={{ fontSize: 16, fontWeight: 600, color: pColor }}>{row.rawPriority}</div>
-                </div>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 11, color: T.muted, marginBottom: 3, letterSpacing: '0.06em' }}>PRIORITY</div>
+                    <div style={{ fontSize: 16, fontWeight: 600, color: pColor }}>{row.rawPriority}</div>
+                  </div>
 
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, marginBottom: 3 }}>SAVING</div>
-                  <div style={{ fontSize: 15, color: row.color }}>{row.effortSaving}</div>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 11, color: T.muted, marginBottom: 3, letterSpacing: '0.06em' }}>SAVING</div>
+                    <div style={{ fontSize: 15, color: row.color }}>{row.effortSaving}</div>
+                  </div>
                 </div>
               </div>
             );
@@ -209,7 +213,7 @@ export function ResultsView({
 
           {unscoredMatrix.length > 0 && (
             <>
-              <div style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', margin: '20px 0 12px' }}>
+              <div style={{ fontFamily: "'Roboto Mono', 'Courier New', monospace", fontSize: 15, color: T.muted, letterSpacing: '0.08em', margin: '20px 0 12px' }}>
                 NOT YET ASSESSED
               </div>
               {unscoredMatrix.map(row => (
@@ -230,7 +234,7 @@ export function ResultsView({
           )}
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: 32 }}>
+        <div style={{ textAlign: 'center', marginTop: 32, display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
           <button
             className="ph-btn"
             style={{ background: T.green, borderColor: T.green, color: '#000', fontSize: 15, padding: '13px 28px' }}

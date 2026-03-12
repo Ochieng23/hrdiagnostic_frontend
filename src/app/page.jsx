@@ -5,9 +5,9 @@ import { useRouter } from 'next/navigation';
 import { api } from '@/lib/api';
 import { MATURITY } from '@/lib/data';
 
-const MONO  = "'JetBrains Mono', 'Courier New', monospace";
+const MONO  = "'Roboto Mono', 'Courier New', monospace";
 const SERIF = "'DM Serif Display', Georgia, serif";
-const SANS  = "'Inter', 'Segoe UI', sans-serif";
+const SANS  = "'Roboto', 'Segoe UI', sans-serif";
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -189,6 +189,7 @@ function SessionRow({ session, onOpen, onDelete }) {
 
   return (
     <div
+      className="rsp-session-row"
       onClick={() => onOpen(session.shareId)}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -320,7 +321,7 @@ export default function HomePage() {
     <div style={{ minHeight: '100vh', background: '#FFFFFF', fontFamily: SANS }}>
 
       {/* ── Sticky nav ──────────────────────────────────────────────────── */}
-      <div style={{
+      <div className="rsp-nav" style={{
         borderBottom: '1px solid #E2E8F0', padding: '0 32px', height: 62,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         background: '#FFFFFF', position: 'sticky', top: 0, zIndex: 10,
@@ -336,26 +337,28 @@ export default function HomePage() {
           }}>HR</div>
           <div>
             <div style={{ fontSize: 16, fontWeight: 600, color: '#0F172A', lineHeight: 1.2 }}>HR AI Diagnostic</div>
-            <div style={{ fontSize: 15, color: '#94A3B8', fontFamily: MONO, letterSpacing: '0.07em' }}>MATURITY ASSESSMENT PLATFORM</div>
+            <div className="rsp-nav-sub" style={{ fontSize: 15, color: '#94A3B8', fontFamily: MONO, letterSpacing: '0.07em' }}>MATURITY ASSESSMENT PLATFORM</div>
           </div>
         </div>
-        <button
-          className="ph-btn"
-          onClick={() => setShowNewModal(true)}
-          style={{ background: '#7C3AED', borderColor: '#7C3AED', color: '#fff' }}
-        >
-          + NEW DIAGNOSTIC
-        </button>
+        <div className="rsp-nav-cta">
+          <button
+            className="ph-btn"
+            onClick={() => setShowNewModal(true)}
+            style={{ background: '#7C3AED', borderColor: '#7C3AED', color: '#fff' }}
+          >
+            + NEW DIAGNOSTIC
+          </button>
+        </div>
       </div>
 
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '44px 24px 80px' }}>
+      <div className="rsp-main-content" style={{ maxWidth: 1100, margin: '0 auto', padding: '44px 24px 80px' }}>
 
         {/* ── Hero ────────────────────────────────────────────────────────── */}
         <div style={{ marginBottom: 44 }}>
           <div style={{ fontFamily: MONO, fontSize: 16, color: '#94A3B8', letterSpacing: '0.11em', marginBottom: 14 }}>
             DIAGNOSTIC DASHBOARD
           </div>
-          <div style={{ fontFamily: SERIF, fontSize: 46, color: '#0F172A', lineHeight: 1.1, marginBottom: 10 }}>
+          <div className="rsp-hero-title" style={{ fontFamily: SERIF, fontSize: 46, color: '#0F172A', lineHeight: 1.1, marginBottom: 10 }}>
             HR AI Readiness &amp;<br />
             <span style={{ color: '#7C3AED', fontStyle: 'italic' }}>Bottleneck Diagnostics</span>
           </div>
@@ -380,7 +383,7 @@ export default function HomePage() {
                 <div style={{ fontFamily: MONO, fontSize: 15, color: '#94A3B8', letterSpacing: '0.08em', marginBottom: 6 }}>
                   {s.label.toUpperCase()}
                 </div>
-                <div style={{ fontSize: 46, fontWeight: 700, color: s.color, fontFamily: MONO, lineHeight: 1 }}>
+                <div className="rsp-stat-num" style={{ fontSize: 46, fontWeight: 700, color: s.color, fontFamily: MONO, lineHeight: 1 }}>
                   {s.value}
                 </div>
               </div>
@@ -402,7 +405,7 @@ export default function HomePage() {
             <div style={{ fontFamily: MONO, fontSize: 16, color: '#64748B', letterSpacing: '0.08em', fontWeight: 600 }}>
               PREVIOUS DIAGNOSTICS {!loading && `· ${filteredSessions.length} shown`}
             </div>
-            <div style={{ display: 'flex', gap: 4 }}>
+            <div className="rsp-filter-btns" style={{ display: 'flex', gap: 4 }}>
               {[
                 { key: 'all',         label: 'All'         },
                 { key: 'completed',   label: 'Completed'   },
@@ -428,7 +431,7 @@ export default function HomePage() {
 
           {/* Column header row */}
           {!loading && filteredSessions.length > 0 && (
-            <div style={{
+            <div className="rsp-col-header" style={{
               display: 'grid',
               gridTemplateColumns: '1fr 130px 160px 130px 110px',
               gap: 16, padding: '10px 20px',

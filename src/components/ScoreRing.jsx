@@ -39,7 +39,7 @@ export function ScoreRing({ score, color, size = 64 }) {
         textAnchor="middle"
         dominantBaseline="central"
         fill={score !== null ? color : '#5A5A6E'}
-        fontFamily="'JetBrains Mono', 'Courier New', monospace"
+        fontFamily="'Roboto Mono', 'Courier New', monospace"
         fontWeight="600"
         fontSize={fontSize}
       >
